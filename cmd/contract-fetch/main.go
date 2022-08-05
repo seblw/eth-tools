@@ -17,10 +17,10 @@ func main() {
 		envOutDir     = "ETH_TOOLS_OUTDIR"
 		defaultOutDir = "./out/"
 	)
-	var usage = fmt.Sprintf(`Usage: contract-fetch <addr>\
+	var usage = fmt.Sprintf(`Usage: contract-fetch <addr>
 Flags:
-	%s [required]
-	%s [default: %s]`, envApiKey, envOutDir, defaultOutDir)
+  %s [required]
+  %s [default: %s]`, envApiKey, envOutDir, defaultOutDir)
 
 	if len(os.Args) != 2 {
 		fail(usage)
