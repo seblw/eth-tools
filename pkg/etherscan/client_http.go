@@ -14,10 +14,22 @@ type HTTPClient struct {
 	baseURL string
 }
 
-func NewHTTPClient(apikey string) *HTTPClient {
-	return &HTTPClient{
+type Option func(*HTTPClient)
+
+func WithBaseURL(url string) Option {
+	return func(c *HTTPClient) {
+		c.baseURL = url
+	}
+}
+
+func NewHTTPClient(apikey string, opts ...Option) *HTTPClient {
+	c := &HTTPClient{
 		client:  http.DefaultClient,
 		apiKey:  apikey,
 		baseURL: BaseMainnet,
 	}
+	for _, o := range opts {
+		o(c)
+	}
+	return c
 }
