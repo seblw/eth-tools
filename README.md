@@ -53,3 +53,30 @@ $ contract-fetch 0xB92336759618F55bd0F8313bd843604592E27bd8 | contract-remapping
 @summa-tx=lib/Replica/node_modules/@summa-tx
 @openzeppelin=lib/Replica/node_modules/@openzeppelin
 ```
+
+## contract-abi
+
+prints contract's ABI with additional metadata in three first rows.
+
+### install
+
+`go install github.com/seblw/eth-tools/cmd/contract-abi`
+
+
+### example
+
+```
+$ contract-abi 0xB92336759618F55bd0F8313bd843604592E27bd8 | head -n 12                                                                                           08/11/2022 01:28:34 AM
+// ContractName: Replica
+// CompilerVersion: v0.7.6+commit.7338295f
+// LicenseType: 
+[
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "_localDomain",
+        "type": "uint32"
+      }
+    ],
+```
