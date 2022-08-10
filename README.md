@@ -37,3 +37,19 @@ lib/Replica/node_modules/@openzeppelin/contracts/cryptography/ECDSA.sol
 lib/Replica/packages/contracts-core/contracts/Version0.sol
 lib/Replica/packages/contracts-core/contracts/libs/TypeCasts.sol
 ```
+
+## contract-remappings
+
+generates foundry compatible dependency remappings for @-prefixed entries.
+
+### install
+
+`go install github.com/seblw/eth-tools/cmd/contract-remappings`
+
+### example
+
+```
+$ contract-fetch 0xB92336759618F55bd0F8313bd843604592E27bd8 | contract-remappings
+@summa-tx=lib/Replica/node_modules/@summa-tx
+@openzeppelin=lib/Replica/node_modules/@openzeppelin
+```
