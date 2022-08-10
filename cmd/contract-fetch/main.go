@@ -50,7 +50,7 @@ Flags:
 	addr := os.Args[1]
 
 	cli := etherscan.NewHTTPClient(apiKey, etherscan.WithBaseURL(baseUrl))
-	res, err := cli.GetSourceCode(context.Background(), addr)
+	res, err := unwrapProxies(context.Background(), cli, addr)
 	if err != nil {
 		fail(err)
 	}
@@ -62,6 +62,24 @@ Flags:
 			if err := save(out, sourceCode); err != nil {
 				printerr(err)
 			}
+		}
+	}
+}
+
+func unwrapProxies(ctx context.Context, cli etherscan.Client, addr string) (*etherscan.GetSourceCodeResponse, error) {
+	resp, err := cli.GetSourceCode(ctx, addr)
+	if err != nil {
+		return nil, err
+	}
+	for {
+		proxy := resp.Result[0].Proxy
+		impl := resp.Result[0].Implementation
+		if proxy == "0" {
+			return resp, err
+		}
+		resp, err = cli.GetSourceCode(ctx, impl)
+		if err != nil {
+			return nil, err
 		}
 	}
 }
