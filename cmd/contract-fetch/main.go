@@ -55,7 +55,9 @@ Flags:
 
 	for _, result := range res.Result {
 		for path, sourceCode := range parseAndFlatten(result) {
-			if err := save(filepath.Join(outdir, result.ContractName, path), sourceCode); err != nil {
+			out := filepath.Join(outdir, result.ContractName, path)
+			print(out)
+			if err := save(out, sourceCode); err != nil {
 				printerr(err)
 			}
 		}
@@ -63,6 +65,10 @@ Flags:
 }
 
 func printerr(v any) {
+	fmt.Fprintf(os.Stdout, "%s\n", v)
+}
+
+func print(v any) {
 	fmt.Fprintf(os.Stdout, "%s\n", v)
 }
 
