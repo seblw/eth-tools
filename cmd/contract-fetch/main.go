@@ -13,8 +13,10 @@ import (
 
 func main() {
 	const (
-		envApiKey     = "ETH_TOOLS_APIKEY"
-		defaultOutDir = "./lib/"
+		envApiKey      = "ETH_TOOLS_APIKEY"
+		envBaseUrl     = "ETH_TOOLS_URL"
+		defaultOutDir  = "./lib/"
+		defaultBaseUrl = etherscan.BaseMainnet
 	)
 	var usage = fmt.Sprintf(`Usage: contract-fetch <addr> <outDir>
 
@@ -22,7 +24,9 @@ addr	- contract address (required)
 outDir	- output directory (optional, default: %s)
 
 Flags:
-  %s (required)`, defaultOutDir, envApiKey)
+  %s (required)
+  %s (optional, default: %s)`,
+		defaultOutDir, envApiKey, envBaseUrl, defaultBaseUrl)
 
 	if len(os.Args) != 2 && len(os.Args) != 3 {
 		fail(usage)
@@ -43,7 +47,7 @@ Flags:
 		outdir = os.Args[2]
 	}
 
-	cli := etherscan.NewHTTPClient(apiKey)
+	cli := etherscan.NewHTTPClient(apiKey, etherscan.WithBaseURL(defaultBaseUrl))
 	res, err := cli.GetSourceCode(context.Background(), addr)
 	if err != nil {
 		fail(err)
