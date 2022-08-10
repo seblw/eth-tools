@@ -55,7 +55,7 @@ Flags:
 
 	for _, result := range res.Result {
 		for path, sourceCode := range parseAndFlatten(result) {
-			if err := save(filepath.Join(outdir, path), sourceCode); err != nil {
+			if err := save(filepath.Join(outdir, result.ContractName, path), sourceCode); err != nil {
 				printerr(err)
 			}
 		}
