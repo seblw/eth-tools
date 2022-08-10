@@ -37,9 +37,9 @@ Flags:
 		fail("etherscan api key required")
 	}
 
-	addr := os.Args[1]
-	if apiKey == "" {
-		fail(usage)
+	baseUrl := os.Getenv(envBaseUrl)
+	if baseUrl == "" {
+		baseUrl = defaultBaseUrl
 	}
 
 	outdir := defaultOutDir
@@ -47,7 +47,9 @@ Flags:
 		outdir = os.Args[2]
 	}
 
-	cli := etherscan.NewHTTPClient(apiKey, etherscan.WithBaseURL(defaultBaseUrl))
+	addr := os.Args[1]
+
+	cli := etherscan.NewHTTPClient(apiKey, etherscan.WithBaseURL(baseUrl))
 	res, err := cli.GetSourceCode(context.Background(), addr)
 	if err != nil {
 		fail(err)
