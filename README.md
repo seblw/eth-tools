@@ -80,3 +80,21 @@ $ contract-abi 0xB92336759618F55bd0F8313bd843604592E27bd8 | head -n 12          
       }
     ],
 ```
+
+## contract-interface
+
+accepts contract ABI in JSON format as starndard input (stdin), prints solidity interface representation to stardard output (stdout).
+
+### install
+
+`go install github.com/seblw/eth-tools/cmd/contract-interface`
+
+### example
+
+```
+$ contract-abi 0xB92336759618F55bd0F8313bd843604592E27bd8 | contract-interface                                                                                          08/11/2022 01:28:34 AM
+constructor(uint32 _localDomain) public
+event NewUpdater(address oldUpdater, address newUpdater)
+function process(bytes _message) external nonpayable returns (bool _success)
+function prove(bytes32 _leaf, bytes32[32] _proof, uint256 _index) external nonpayable returns (bool)
+```
