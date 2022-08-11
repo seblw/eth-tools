@@ -1,5 +1,7 @@
 # eth-tools
 
+eth-tools is a set of smart contract utilities that can be easly composed with each other.
+
 ## contract-fetch
 
 ```
@@ -40,7 +42,7 @@ lib/Replica/packages/contracts-core/contracts/libs/TypeCasts.sol
 
 ## contract-remappings
 
-generates foundry compatible dependency remappings for @-prefixed entries.
+accepts list of files as standard input (stdin), prints foundry compatible dependency remappings for @-prefixed entries to stardard output (stdout).
 
 ### install
 
@@ -83,7 +85,7 @@ $ contract-abi 0xB92336759618F55bd0F8313bd843604592E27bd8 | head -n 12          
 
 ## contract-interface
 
-accepts contract ABI in JSON format as starndard input (stdin), prints solidity interface representation to stardard output (stdout).
+accepts contract ABI in JSON format as standard input (stdin), prints solidity interface representation to stardard output (stdout).
 
 ### install
 
