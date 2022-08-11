@@ -2,6 +2,9 @@
 
 eth-tools is a set of smart contract utilities that can be easly composed with each other.
 
+### install all tools in one go
+`go install github.com/seblw/eth-tools/cmd/...@latest`
+
 ## contract-fetch
 
 ```
@@ -17,7 +20,7 @@ Flags:
 
 ### install
 
-`go install github.com/seblw/eth-tools/cmd/contract-fetch`
+`go install github.com/seblw/eth-tools/cmd/contract-fetch@latest`
 
 
 ### example
@@ -46,7 +49,7 @@ accepts list of files as standard input (stdin), prints foundry compatible depen
 
 ### install
 
-`go install github.com/seblw/eth-tools/cmd/contract-remappings`
+`go install github.com/seblw/eth-tools/cmd/contract-remappings@latest`
 
 ### example
 
@@ -62,7 +65,7 @@ prints contract's ABI with additional metadata in three first rows.
 
 ### install
 
-`go install github.com/seblw/eth-tools/cmd/contract-abi`
+`go install github.com/seblw/eth-tools/cmd/contract-abi@latest`
 
 
 ### example
@@ -89,7 +92,7 @@ accepts contract ABI in JSON format as standard input (stdin), prints solidity i
 
 ### install
 
-`go install github.com/seblw/eth-tools/cmd/contract-interface`
+`go install github.com/seblw/eth-tools/cmd/contract-interface@latest`
 
 ### example
 
