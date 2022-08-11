@@ -42,7 +42,7 @@ lib/Replica/packages/contracts-core/contracts/libs/TypeCasts.sol
 
 ## contract-remappings
 
-accepts list of files as standard input (stdin), prints foundry compatible dependency remappings for @-prefixed entries to stardard output (stdout).
+accepts list of files as standard input (stdin), prints foundry compatible dependency remappings for @-prefixed entries to standard output (stdout).
 
 ### install
 
@@ -68,7 +68,7 @@ prints contract's ABI with additional metadata in three first rows.
 ### example
 
 ```
-$ contract-abi 0xB92336759618F55bd0F8313bd843604592E27bd8 | head -n 12                                                                                           08/11/2022 01:28:34 AM
+$ contract-abi 0xB92336759618F55bd0F8313bd843604592E27bd8 | head -n 12
 // ContractName: Replica
 // CompilerVersion: v0.7.6+commit.7338295f
 // LicenseType: 
@@ -85,7 +85,7 @@ $ contract-abi 0xB92336759618F55bd0F8313bd843604592E27bd8 | head -n 12          
 
 ## contract-interface
 
-accepts contract ABI in JSON format as standard input (stdin), prints solidity interface representation to stardard output (stdout).
+accepts contract ABI in JSON format as standard input (stdin), prints solidity interface representation to standard output (stdout).
 
 ### install
 
@@ -94,7 +94,7 @@ accepts contract ABI in JSON format as standard input (stdin), prints solidity i
 ### example
 
 ```
-$ contract-abi 0xB92336759618F55bd0F8313bd843604592E27bd8 | contract-interface                                                                                          08/11/2022 01:28:34 AM
+$ contract-abi 0xB92336759618F55bd0F8313bd843604592E27bd8 | contract-interface
 constructor(uint32 _localDomain) public
 event NewUpdater(address oldUpdater, address newUpdater)
 function process(bytes _message) external nonpayable returns (bool _success)
